@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.example.bmapp.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,9 +39,22 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
+        return inflater.inflate(R.layout.fragment_signin, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val editText:EditText = view.findViewById(R.id.editTextText)
+        val btn:Button = view.findViewById(R.id.btn_nav)
+        val navController = findNavController()
+        btn.setOnClickListener {
+            navController.navigate(R.id.homeFragment2,Bundle().apply {
+                putString("nameUser",editText.text.toString())
+            }, navOptions {
+                popUpTo(R.id.homeFragment2)
+            })
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of

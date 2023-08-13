@@ -5,6 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.NavOptions
+import androidx.navigation.NavOptionsBuilder
+import androidx.navigation.NavType
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navArgument
+import androidx.navigation.navOptions
+import androidx.sqlite.db.SupportSQLiteOpenHelper
 import com.example.bmapp.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,6 +44,23 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val textView:TextView = view.findViewById(R.id.home_tv)
+
+        navOptions {
+            listOf(
+                navArgument("nameUser"){
+                    type = NavType.StringType
+                }
+            )
+            println("do ${arguments?.getString("nameUser")}")
+            val name = arguments?.getString("nameUser")
+            textView.text = name?:"home"
+        }
+
     }
 
     companion object {

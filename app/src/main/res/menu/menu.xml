@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/menu_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:title="home"
+        android:id="@+id/homeFragment2"
         android:icon="@drawable/baseline_home_24"
-        android:title="home" />
-    <item
-        android:id="@+id/menu_fav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:icon="@drawable/baseline_favorite_24"
-        android:title="favorite" />
-    <item
-        android:id="@+id/menu_pro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:icon="@drawable/baseline_person_24"
-        android:title="profile" />
+        />
+    <item android:id="@+id/favoriteFragment"
+        android:title="favorite"
+        android:icon="@drawable/baseline_favorite_24"/>
+    <item android:id="@+id/profileFragment"
+        android:title="person"
+        android:icon="@drawable/baseline_person_24"/>
 </menu>
