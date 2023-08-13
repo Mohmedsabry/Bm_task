@@ -52,7 +52,7 @@ class FavoriteFragment : Fragment() {
                 putString("nameUser",editText.text.toString())
             }, navOptions {
                 popUpTo(R.id.homeFragment2)
-            })
+            },)
         }
     }
     companion object {
